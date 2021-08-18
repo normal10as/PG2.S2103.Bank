@@ -1,4 +1,4 @@
-Public Class Custumer
+Public Class Customer
     Public Sub New()
         Nombre = ""
         Documento = 0

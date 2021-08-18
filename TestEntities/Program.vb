@@ -2,13 +2,13 @@ Imports System
 Imports EntitiesVb
 Module Program
     Sub Main(args As String())
-        Dim custumer As Custumer
-        custumer = New Custumer()
-        custumer.Nombre = "Pepe"
-        custumer.Documento = 12345678
-        custumer.FechaNacimiento = #2000-08-10#
-        Console.WriteLine("Nombre: " & custumer.Nombre)
-        Console.WriteLine("Documento: " & custumer.Documento)
-        Console.WriteLine("Fecha de nacimiento: " & custumer.FechaNacimiento)
+        Dim customer As Customer
+        customer = New Customer()
+        customer.Nombre = "Pepe"
+        customer.Documento = 12345678
+        customer.FechaNacimiento = #2000-08-10#
+        Console.WriteLine("Nombre: " & customer.Nombre)
+        Console.WriteLine("Documento: " & customer.Documento)
+        Console.WriteLine("Fecha de nacimiento: " & customer.FechaNacimiento)
     End Sub
 End Module
