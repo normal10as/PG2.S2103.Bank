@@ -8,6 +8,9 @@ namespace EntitiesCs
     {
         private int number;
         private decimal saldo;
+        public Account()
+        {
+        }
         public int Number
         {
             get

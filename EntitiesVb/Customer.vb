@@ -1,10 +1,18 @@
 Public Class Customer
     Public Sub New()
-        Name = ""
-        Dni = 0
-        BirthDate = Nothing
+        Me.Name = ""
+        BirthDay = Nothing
     End Sub
-
+    Public Sub New(Name As String, Dni As Integer)
+        Me.Name = Name
+        Me.Dni = Dni
+        BirthDay = Nothing
+    End Sub
+    Public Sub New(Name As String, Dni As Integer, BirthDay As Date)
+        Me.Name = Name
+        Me.Dni = Dni
+        Me.BirthDay = BirthDay
+    End Sub
     ' Campo, este forma parte de la implementación privada
     Private _name As String
     ' Propiedad, forma parte de la interfaz pública
@@ -30,13 +38,13 @@ Public Class Customer
         End Set
     End Property
 
-    Private _birthDate As Date
-    Public Property BirthDate As Date
+    Private _birthDay As Date
+    Public Property BirthDay As Date
         Get
-            Return _birthDate
+            Return _birthDay
         End Get
         Set(value As Date)
-            _birthDate = value
+            _birthDay = value
         End Set
     End Property
 End Class

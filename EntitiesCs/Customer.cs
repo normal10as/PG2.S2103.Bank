@@ -8,9 +8,20 @@ namespace EntitiesCs
         {
             Name = "";
             Dni = 0;
-            BirthDate = null;
+            BirthDay = null;
         }
-
+        public Customer(string Name, int Dni)
+        {
+            this.Name = Name;
+            this.Dni = Dni;
+            BirthDay = null;
+        }
+        public Customer(string Name, int Dni, DateTime BirthDate)
+        {
+            this.Name = Name;
+            this.Dni = Dni;
+            this.BirthDay = BirthDate;
+        }
         private string name;
         public string Name
         {
@@ -25,16 +36,16 @@ namespace EntitiesCs
         }
         private int dni;
         public int Dni { get => dni; set => dni = value; }
-        private DateTime? birthDate;
-        public DateTime? BirthDate
+        private DateTime? birthDay;
+        public DateTime? BirthDay
         {
             get
             {
-                return birthDate;
+                return birthDay;
             }
             set
             {
-                birthDate = value;
+                birthDay = value;
             }
         }
     }

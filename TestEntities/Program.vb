@@ -2,18 +2,39 @@ Imports System
 Imports EntitiesVb
 Module Program
     Sub Main(args As String())
-        'TestCustomer()
-        TestAccount()
+        TestCustomer()
+        'TestAccount()
     End Sub
 
     Private Sub TestCustomer()
-        Dim customer As Customer = New Customer()
-        customer.Name = "Pepe"
-        customer.Dni = 12345678
-        customer.BirthDate = #2000-08-10#
+        Dim customer1 As Customer    ' Instanciación
+        customer1 = New Customer()   ' Inicializacion
+        customer1.Name = "Pepe"
+        customer1.Dni = 12345678
+        customer1.BirthDay = #2000-08-10#
+        ShowCustomer(customer1)
+        Dim customer2 As Customer    ' Instanciación
+        customer2 = New Customer("pepo", 98765432)   ' Inicializacion
+        ShowCustomer(customer2)
+        Dim customer3 As Customer    ' Instanciación
+        customer3 = New Customer("papo", 98765432, #1990-5-23#)   ' Inicializacion
+        ShowCustomer(customer3)
+        Dim customer4 As Customer    ' Instanciación
+        customer4 = New Customer With {.Name = "pipo"}    ' Inicializacion
+        ShowCustomer(customer4)
+        Dim customer5 As Customer    ' Instanciación
+        customer5 = New Customer With {
+            .Name = "pepa",
+            .BirthDay = #1990-5-23#}   ' Inicializacion
+        ShowCustomer(customer5)
+
+
+    End Sub
+
+    Private Sub ShowCustomer(customer As Customer)
         Console.WriteLine("Nombre: " & customer.Name)
         Console.WriteLine("Documento: " & customer.Dni)
-        Console.WriteLine("Fecha de nacimiento: " & customer.BirthDate)
+        Console.WriteLine("Fecha de nacimiento: " & customer.BirthDay)
     End Sub
 
     Private Sub TestAccount()

@@ -1,7 +1,8 @@
 ﻿Public Class Account
     Private _number As Integer
     Private _saldo As Decimal
-
+    Public Sub New()
+    End Sub
     Public Property Number As Integer
         Get
             Return _number

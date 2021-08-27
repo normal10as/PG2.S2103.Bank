@@ -7,8 +7,8 @@ namespace TestEntitiesCs
     {
         static void Main(string[] args)
         {
-            //CustomerTest();
-            AccountTest();
+            CustomerTest();
+            //AccountTest();
         }
 
         private static void AccountTest()
@@ -28,13 +28,34 @@ namespace TestEntitiesCs
         }
         private static void CustomerTest()
         {
-            Customer customer = new Customer();
-            customer.Name = "Pepe";
-            customer.Dni = 12345678;
-            customer.BirthDate = new DateTime(2000, 08, 10);
+            Customer customer1; // instanciación
+            customer1 = new Customer();   // inicialización
+            customer1.Name = "Pepe";
+            customer1.Dni = 12345678;
+            customer1.BirthDay = new DateTime(2000, 08, 10);
+            ShowCustomer(customer1);
+            Customer customer2; // instanciación
+            customer2 = new Customer("pepo",98765432);   // inicialización
+            ShowCustomer(customer2);
+            Customer customer3; // instanciación
+            customer3 = new Customer("papo", 98765432, new DateTime(1990,5,23));   // inicialización
+            ShowCustomer(customer3);
+            Customer customer4; // instanciación
+            customer4 = new Customer {Name = "pipo"};   // inicialización
+            ShowCustomer(customer4);
+            Customer customer5; // instanciación
+            customer5 = new Customer {
+                Name ="pepa", 
+                BirthDay = new DateTime(1990, 5, 23)
+            };   // inicialización
+            ShowCustomer(customer5);
+        }
+
+        private static void ShowCustomer(Customer customer)
+        {
             Console.WriteLine("Nombre: " + customer.Name);
             Console.WriteLine("Documento: " + customer.Dni);
-            Console.WriteLine("Fecha de nacimiento: " + customer.BirthDate);
+            Console.WriteLine("Fecha de nacimiento: " + customer.BirthDay);
         }
     }
 }
