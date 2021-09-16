@@ -1,12 +1,15 @@
 Public Class Customer
     Public Sub New()
-        Me.Name = ""
-        BirthDay = Nothing
+        Me.New("", 0)
+        'Me.Name = ""
+        'Me.Dni = 0
+        'BirthDay = Nothing
     End Sub
     Public Sub New(Name As String, Dni As Integer)
-        Me.Name = Name
-        Me.Dni = Dni
-        BirthDay = Nothing
+        Me.New(Name, Dni, Nothing)
+        'Me.Name = Name
+        'Me.Dni = Dni
+        'BirthDay = Nothing
     End Sub
     Public Sub New(Name As String, Dni As Integer, BirthDay As Date)
         Me.Name = Name

@@ -10,6 +10,7 @@ namespace EntitiesCs
         private decimal saldo;
         public Account()
         {
+            Enabled = true;
         }
         public int Number
         {
@@ -24,6 +25,8 @@ namespace EntitiesCs
             }
         }
         public decimal Saldo { get => saldo; }
+
+        public bool Enabled { get; set; }
         public void Depositar(decimal value)
         {
             saldo += value;

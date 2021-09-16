@@ -2,8 +2,8 @@ Imports System
 Imports EntitiesVb
 Module Program
     Sub Main(args As String())
-        TestCustomer()
-        'TestAccount()
+        'TestCustomer()
+        TestAccount()
     End Sub
 
     Private Sub TestCustomer()

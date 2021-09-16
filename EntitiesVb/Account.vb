@@ -2,6 +2,7 @@
     Private _number As Integer
     Private _saldo As Decimal
     Public Sub New()
+        _Enabled = True
     End Sub
     Public Property Number As Integer
         Get
@@ -18,6 +19,8 @@
             Return _saldo
         End Get
     End Property
+
+    Public Property Enabled As Boolean
 
     Public Sub Depositar(value As Decimal)
         _saldo += value

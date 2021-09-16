@@ -10,16 +10,16 @@ namespace EntitiesCs
             Dni = 0;
             BirthDay = null;
         }
-        public Customer(string Name, int Dni)
+        public Customer(string Name, int Dni) : this ()
         {
             this.Name = Name;
             this.Dni = Dni;
-            BirthDay = null;
+            //BirthDay = null;
         }
-        public Customer(string Name, int Dni, DateTime BirthDate)
+        public Customer(string Name, int Dni, DateTime BirthDate) : this(Name, Dni)
         {
-            this.Name = Name;
-            this.Dni = Dni;
+            //this.Name = Name;
+            //this.Dni = Dni;
             this.BirthDay = BirthDate;
         }
         private string name;
