@@ -3,7 +3,8 @@ Imports EntitiesVb
 Module Program
     Sub Main(args As String())
         'TestCustomer()
-        TestAccount()
+        TestSavingAccount()
+        'TestAccount()
     End Sub
 
     Private Sub TestCustomer()
@@ -37,6 +38,24 @@ Module Program
         Console.WriteLine("Fecha de nacimiento: " & customer.BirthDay)
     End Sub
 
+    Private Sub TestSavingAccount()
+        Dim account1 As SavingAccount = New SavingAccount()
+        account1.Number = 123 ' falla la asignación
+        account1.Number = 12345
+        account1.MonthlyInterestRate = 0.1
+        'account1.Saldo = 1000 no es posible porque es solo lectura
+        Console.WriteLine("Número: " & account1.Number)
+        Console.WriteLine("Saldo: " & account1.Saldo)
+        Console.WriteLine("Tasa de interes mensual: " & account1.MonthlyInterestRate)
+        account1.Depositar(3000)
+        Console.WriteLine("Saldo: " & account1.Saldo)
+        account1.Capitalizar()
+        Console.WriteLine("Saldo capitalizado: " & account1.Saldo)
+        account1.Extraer(2500)
+        Console.WriteLine("Saldo: " & account1.Saldo)
+        account1.Extraer(2000)
+        Console.WriteLine("Saldo: " & account1.Saldo)
+    End Sub
     Private Sub TestAccount()
         Dim account1 As Account = New Account()
         account1.Number = 123 ' falla la asignación

@@ -12,6 +12,11 @@ namespace EntitiesCs
         {
             Enabled = true;
         }
+        public Account(int number, decimal saldo) : this()
+        {
+            Number = number;
+            this.saldo = saldo;
+        }
         public int Number
         {
             get
