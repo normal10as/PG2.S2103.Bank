@@ -11,7 +11,6 @@ namespace TestEntitiesCs
             //AccountTest();
             SavingAccountTest();
         }
-
         private static void SavingAccountTest()
         {
             SavingAccount account1 = new SavingAccount(12345,10000,0.10m);
@@ -45,7 +44,6 @@ namespace TestEntitiesCs
             Console.WriteLine("Saldo: " + account1.Saldo);
             account1.Extraer(2000);
             Console.WriteLine("Saldo: " + account1.Saldo);
-
             Account account2 = new Account(23456, 10000);
             Console.WriteLine("Numero: " + account2.Number);
             Console.WriteLine("Saldo: " + account2.Saldo);
@@ -74,7 +72,6 @@ namespace TestEntitiesCs
             };   // inicialización
             ShowCustomer(customer5);
         }
-
         private static void ShowCustomer(Customer customer)
         {
             Console.WriteLine("Nombre: " + customer.Name);

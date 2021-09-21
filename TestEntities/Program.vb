@@ -3,10 +3,9 @@ Imports EntitiesVb
 Module Program
     Sub Main(args As String())
         'TestCustomer()
-        TestSavingAccount()
         'TestAccount()
+        TestSavingAccount()
     End Sub
-
     Private Sub TestCustomer()
         Dim customer1 As Customer    ' Instanciación
         customer1 = New Customer()   ' Inicializacion
@@ -31,15 +30,13 @@ Module Program
 
 
     End Sub
-
     Private Sub ShowCustomer(customer As Customer)
         Console.WriteLine("Nombre: " & customer.Name)
         Console.WriteLine("Documento: " & customer.Dni)
         Console.WriteLine("Fecha de nacimiento: " & customer.BirthDay)
     End Sub
-
     Private Sub TestSavingAccount()
-        Dim account1 As SavingAccount = New SavingAccount()
+        Dim account1 As SavingAccount = New SavingAccount(12345, 10000, 0.1)
         account1.Number = 123 ' falla la asignación
         account1.Number = 12345
         account1.MonthlyInterestRate = 0.1
