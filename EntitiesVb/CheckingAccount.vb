@@ -1,4 +1,4 @@
-﻿Public Class CurrentAccount
+﻿Public Class CheckingAccount
     Inherits Account
     Private _OverdraftAmount As String
     Public Property OverdraftAmount() As String
@@ -9,12 +9,12 @@
             _OverdraftAmount = value
         End Set
     End Property
-    Public Overrides Sub Extraer(value As Decimal)
-        If isSaldoSuficiente(value) Then
-            _saldo -= value
+    Public Overrides Sub Withdraw(value As Decimal)
+        If isBalanceAvailable(value) Then
+            _balance -= value
         End If
     End Sub
-    Private Function isSaldoSuficiente(monto As Decimal) As Boolean
-        Return Saldo >= monto - OverdraftAmount
+    Private Function isBalanceAvailable(amount As Decimal) As Boolean
+        Return Balance >= amount - OverdraftAmount
     End Function
 End Class

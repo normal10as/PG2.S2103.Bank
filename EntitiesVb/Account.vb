@@ -1,13 +1,13 @@
 ﻿Public Class Account
     Private _number As Integer
-    Protected _saldo As Decimal
+    Protected _balance As Decimal
     Public Sub New()
         _Enabled = True
     End Sub
-    Public Sub New(number As Integer, saldo As Decimal)
+    Public Sub New(number As Integer, balance As Decimal)
         MyBase.New()
         Me.Number = number
-        _saldo = saldo
+        _balance = balance
     End Sub
     Public Property Number As Integer
         Get
@@ -19,22 +19,22 @@
             End If
         End Set
     End Property
-    Public ReadOnly Property Saldo As Decimal
+    Public ReadOnly Property Balance As Decimal
         Get
-            Return _saldo
+            Return _balance
         End Get
     End Property
     Public Property Enabled As Boolean
-    Public Sub Depositar(value As Decimal)
-        _saldo += value
+    Public Sub Deposit(value As Decimal)
+        _balance += value
     End Sub
 
-    Public Overridable Sub Extraer(value As Decimal)
-        If isSaldoSuficiente(value) Then
-            _saldo -= value
+    Public Overridable Sub Withdraw(value As Decimal)
+        If isBalanceAvailable(value) Then
+            _balance -= value
         End If
     End Sub
-    Private Function isSaldoSuficiente(monto As Decimal) As Boolean
-        Return Saldo >= monto
+    Private Function isBalanceAvailable(amonto As Decimal) As Boolean
+        Return Balance >= amonto
     End Function
 End Class
