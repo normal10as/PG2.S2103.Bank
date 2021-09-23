@@ -4,6 +4,11 @@
     Public Sub New()
         _Enabled = True
     End Sub
+    Public Sub New(number As Integer, saldo As Decimal)
+        MyBase.New()
+        Me.Number = number
+        _saldo = saldo
+    End Sub
     Public Property Number As Integer
         Get
             Return _number
@@ -19,9 +24,7 @@
             Return _saldo
         End Get
     End Property
-
     Public Property Enabled As Boolean
-
     Public Sub Depositar(value As Decimal)
         _saldo += value
     End Sub
