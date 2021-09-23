@@ -9,9 +9,27 @@ namespace TestEntitiesCs
         {
             //CustomerTest();
             //AccountTest();
-            SavingAccountTest();
+            //SavingAccountTest();
+            CurrentAccountTest();
         }
 
+        private static void CurrentAccountTest()
+        {
+            CurrentAccount account1 = new CurrentAccount(12345,10000,5000);
+            //account1.Number = 123; // falla por la regla establecida
+            //account1.Number = 12345;
+            //account1.OverdraftAmount = 5000;
+            //account1.Saldo = 1000; No se puede asignar porque es de solo lectura
+            Console.WriteLine("Numero: " + account1.Number);
+            Console.WriteLine("Saldo: " + account1.Saldo);
+            Console.WriteLine("Monto de sobregiro: " + account1.OverdraftAmount);
+            account1.Depositar(3000);
+            Console.WriteLine("Saldo: " + account1.Saldo);
+            account1.Extraer(2500);
+            Console.WriteLine("Saldo: " + account1.Saldo);
+            account1.Extraer(2000);
+            Console.WriteLine("Saldo: " + account1.Saldo);
+        }
         private static void SavingAccountTest()
         {
             SavingAccount account1 = new SavingAccount(12345,10000,0.10m);

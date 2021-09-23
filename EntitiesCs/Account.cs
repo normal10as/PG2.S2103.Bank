@@ -7,7 +7,7 @@ namespace EntitiesCs
     public class Account
     {
         private int number;
-        private decimal saldo;
+        protected decimal saldo;
         public Account()
         {
             Enabled = true;
@@ -36,7 +36,7 @@ namespace EntitiesCs
         {
             saldo += value;
         }
-        public void Extraer(decimal value)
+        public virtual void Extraer(decimal value)
         {
             if (isSaldoSuficiente(value)) // validación
                 saldo -= value;

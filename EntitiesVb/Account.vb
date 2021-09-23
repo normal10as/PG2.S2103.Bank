@@ -1,6 +1,6 @@
 ﻿Public Class Account
     Private _number As Integer
-    Private _saldo As Decimal
+    Protected _saldo As Decimal
     Public Sub New()
         _Enabled = True
     End Sub
@@ -26,7 +26,7 @@
         _saldo += value
     End Sub
 
-    Public Sub Extraer(value As Decimal)
+    Public Overridable Sub Extraer(value As Decimal)
         If isSaldoSuficiente(value) Then
             _saldo -= value
         End If
