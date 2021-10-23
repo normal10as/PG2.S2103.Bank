@@ -2,18 +2,18 @@ Public Class Customer
     Public Sub New()
         Me.New("", 0)
         'Me.Name = ""
-        'Me.Dni = 0
+        'Me.id = 0
         'BirthDay = Nothing
     End Sub
-    Public Sub New(Name As String, Dni As Integer)
-        Me.New(Name, Dni, Nothing)
+    Public Sub New(Name As String, id As Integer)
+        Me.New(Name, id, Nothing)
         'Me.Name = Name
-        'Me.Dni = Dni
+        'Me.id = id
         'BirthDay = Nothing
     End Sub
-    Public Sub New(Name As String, Dni As Integer, BirthDay As Date)
+    Public Sub New(Name As String, id As Integer, BirthDay As Date)
         Me.Name = Name
-        Me.Dni = Dni
+        Me.Id = id
         Me.BirthDay = BirthDay
     End Sub
     ' Campo, este forma parte de la implementación privada
@@ -31,13 +31,13 @@ Public Class Customer
         End Set
     End Property
 
-    Private _dni As Integer
-    Public Property Dni As Integer
+    Private _id As Integer
+    Public Property Id As Integer
         Get
-            Return _dni
+            Return _id
         End Get
         Set(value As Integer)
-            _dni = value
+            _id = value
         End Set
     End Property
 

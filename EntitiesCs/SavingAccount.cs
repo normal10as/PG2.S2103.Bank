@@ -12,9 +12,9 @@ namespace EntitiesCs
             MonthlyInterestRate = monthlyInterestRate;
         }
         public decimal MonthlyInterestRate { get; set; }
-        public void Capitalizar()
+        public void DepositMonthlyInterest()
         {
-            Depositar(Saldo * MonthlyInterestRate); // Metodo heredado
+            Withdraw(Balance * MonthlyInterestRate); // Metodo heredado
         }
     }
 }

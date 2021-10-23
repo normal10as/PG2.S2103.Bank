@@ -7,11 +7,11 @@ Module Program
         TestAccount()
         TestCurrentAccount()
     End Sub
-    Private Sub TestCustomer()
+    Private Sub CustomerTest()
         Dim customer1 As Customer    ' Instanciación
         customer1 = New Customer()   ' Inicializacion
         customer1.Name = "Pepe"
-        customer1.Dni = 12345678
+        customer1.Id = 12345678
         customer1.BirthDay = #2000-08-10#
         ShowCustomer(customer1)
         Dim customer2 As Customer    ' Instanciación
@@ -33,10 +33,12 @@ Module Program
     End Sub
     Private Sub ShowCustomer(customer As Customer)
         Console.WriteLine("Nombre: " & customer.Name)
-        Console.WriteLine("Documento: " & customer.Dni)
+        Console.WriteLine("Documento: " & customer.Id)
         Console.WriteLine("Fecha de nacimiento: " & customer.BirthDay)
     End Sub
 
+    Private Sub CheckingAccountTest()
+        Dim account1 As CheckingAccount = New CheckingAccount()
     Private Sub TestCurrentAccount()
         Dim account1 As CurrentAccount = New CurrentAccount()
         Console.WriteLine(account1)
@@ -46,33 +48,33 @@ Module Program
         Console.WriteLine(account1)
         'account1.Saldo = 1000 no es posible porque es solo lectura
         Console.WriteLine("Número: " & account1.Number)
-        Console.WriteLine("Saldo: " & account1.Saldo)
-        account1.Depositar(3000)
-        Console.WriteLine("Saldo: " & account1.Saldo)
-        account1.Extraer(2500)
-        Console.WriteLine("Saldo: " & account1.Saldo)
-        account1.Extraer(2000)
-        Console.WriteLine("Saldo: " & account1.Saldo)
+        Console.WriteLine("Saldo: " & account1.Balance)
+        account1.Deposit(3000)
+        Console.WriteLine("Saldo: " & account1.Balance)
+        account1.Withdraw(2500)
+        Console.WriteLine("Saldo: " & account1.Balance)
+        account1.Withdraw(2000)
+        Console.WriteLine("Saldo: " & account1.Balance)
     End Sub
-    Private Sub TestSavingAccount()
+    Private Sub SavingAccountTest()
         Dim account1 As SavingAccount = New SavingAccount(12345, 10000, 0.1)
         account1.Number = 123 ' falla la asignación
         account1.Number = 12345
         account1.MonthlyInterestRate = 0.1
         'account1.Saldo = 1000 no es posible porque es solo lectura
         Console.WriteLine("Número: " & account1.Number)
-        Console.WriteLine("Saldo: " & account1.Saldo)
+        Console.WriteLine("Saldo: " & account1.Balance)
         Console.WriteLine("Tasa de interes mensual: " & account1.MonthlyInterestRate)
-        account1.Depositar(3000)
-        Console.WriteLine("Saldo: " & account1.Saldo)
-        account1.Capitalizar()
-        Console.WriteLine("Saldo capitalizado: " & account1.Saldo)
-        account1.Extraer(2500)
-        Console.WriteLine("Saldo: " & account1.Saldo)
-        account1.Extraer(2000)
-        Console.WriteLine("Saldo: " & account1.Saldo)
+        account1.Deposit(3000)
+        Console.WriteLine("Saldo: " & account1.Balance)
+        account1.DepositMonthlyInterest()
+        Console.WriteLine("Saldo capitalizado: " & account1.Balance)
+        account1.Withdraw(2500)
+        Console.WriteLine("Saldo: " & account1.Balance)
+        account1.Withdraw(2000)
+        Console.WriteLine("Saldo: " & account1.Balance)
     End Sub
-    Private Sub TestAccount()
+    Private Sub AccountTest()
         Dim account1 As Account = New Account()
         Console.WriteLine(account1)
         account1.Number = 123 ' falla la asignación
@@ -80,12 +82,12 @@ Module Program
         'account1.Saldo = 1000 no es posible porque es solo lectura
         Console.WriteLine(account1.ToString())
         Console.WriteLine("Número: " & account1.Number)
-        Console.WriteLine("Saldo: " & account1.Saldo)
-        account1.Depositar(3000)
-        Console.WriteLine("Saldo: " & account1.Saldo)
-        account1.Extraer(2500)
-        Console.WriteLine("Saldo: " & account1.Saldo)
-        account1.Extraer(2000)
-        Console.WriteLine("Saldo: " & account1.Saldo)
+        Console.WriteLine("Saldo: " & account1.Balance)
+        account1.Deposit(3000)
+        Console.WriteLine("Saldo: " & account1.Balance)
+        account1.Withdraw(2500)
+        Console.WriteLine("Saldo: " & account1.Balance)
+        account1.Withdraw(2000)
+        Console.WriteLine("Saldo: " & account1.Balance)
     End Sub
 End Module

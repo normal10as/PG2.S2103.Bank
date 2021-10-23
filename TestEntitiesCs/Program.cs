@@ -10,25 +10,25 @@ namespace TestEntitiesCs
             //CustomerTest();
             //AccountTest();
             //SavingAccountTest();
-            CurrentAccountTest();
+            CheckingAccountTest();
         }
 
-        private static void CurrentAccountTest()
+        private static void CheckingAccountTest()
         {
-            CurrentAccount account1 = new CurrentAccount(12345,10000,5000);
+            CheckingAccount account1 = new CheckingAccount(12345,10000,5000);
             //account1.Number = 123; // falla por la regla establecida
             //account1.Number = 12345;
             //account1.OverdraftAmount = 5000;
             //account1.Saldo = 1000; No se puede asignar porque es de solo lectura
             Console.WriteLine("Numero: " + account1.Number);
-            Console.WriteLine("Saldo: " + account1.Saldo);
+            Console.WriteLine("Saldo: " + account1.Balance);
             Console.WriteLine("Monto de sobregiro: " + account1.OverdraftAmount);
-            account1.Depositar(3000);
-            Console.WriteLine("Saldo: " + account1.Saldo);
-            account1.Extraer(2500);
-            Console.WriteLine("Saldo: " + account1.Saldo);
-            account1.Extraer(2000);
-            Console.WriteLine("Saldo: " + account1.Saldo);
+            account1.Withdraw(3000);
+            Console.WriteLine("Saldo: " + account1.Balance);
+            account1.Deposit(2500);
+            Console.WriteLine("Saldo: " + account1.Balance);
+            account1.Deposit(2000);
+            Console.WriteLine("Saldo: " + account1.Balance);
         }
         private static void SavingAccountTest()
         {
@@ -38,16 +38,16 @@ namespace TestEntitiesCs
             account1.MonthlyInterestRate = 0.1m;
             //account1.Saldo = 1000; No se puede asignar porque es de solo lectura
             Console.WriteLine("Numero: " + account1.Number);
-            Console.WriteLine("Saldo: " + account1.Saldo);
+            Console.WriteLine("Saldo: " + account1.Balance);
             Console.WriteLine("Tasa de interes mensual: " + account1.MonthlyInterestRate);
-            account1.Depositar(3000);
-            account1.Capitalizar();
-            Console.WriteLine("Saldo capitalizado: " + account1.Saldo);
-            Console.WriteLine("Saldo: " + account1.Saldo);
-            account1.Extraer(2500);
-            Console.WriteLine("Saldo: " + account1.Saldo);
-            account1.Extraer(2000);
-            Console.WriteLine("Saldo: " + account1.Saldo);
+            account1.Withdraw(3000);
+            account1.DepositMonthlyInterest();
+            Console.WriteLine("Saldo capitalizado: " + account1.Balance);
+            Console.WriteLine("Saldo: " + account1.Balance);
+            account1.Deposit(2500);
+            Console.WriteLine("Saldo: " + account1.Balance);
+            account1.Deposit(2000);
+            Console.WriteLine("Saldo: " + account1.Balance);
         }        
         private static void AccountTest()
         {
@@ -56,23 +56,23 @@ namespace TestEntitiesCs
             account1.Number = 12345;
             //account1.Saldo = 1000; No se puede asignar porque es de solo lectura
             Console.WriteLine("Numero: " + account1.Number);
-            Console.WriteLine("Saldo: " + account1.Saldo);
-            account1.Depositar(3000);
-            Console.WriteLine("Saldo: " + account1.Saldo);
-            account1.Extraer(2500);
-            Console.WriteLine("Saldo: " + account1.Saldo);
-            account1.Extraer(2000);
-            Console.WriteLine("Saldo: " + account1.Saldo);
+            Console.WriteLine("Saldo: " + account1.Balance);
+            account1.Withdraw(3000);
+            Console.WriteLine("Saldo: " + account1.Balance);
+            account1.Deposit(2500);
+            Console.WriteLine("Saldo: " + account1.Balance);
+            account1.Deposit(2000);
+            Console.WriteLine("Saldo: " + account1.Balance);
             Account account2 = new Account(23456, 10000);
             Console.WriteLine("Numero: " + account2.Number);
-            Console.WriteLine("Saldo: " + account2.Saldo);
+            Console.WriteLine("Saldo: " + account2.Balance);
         }
         private static void CustomerTest()
         {
             Customer customer1; // instanciación
             customer1 = new Customer();   // inicialización
             customer1.Name = "Pepe";
-            customer1.Dni = 12345678;
+            customer1.Id = 12345678;
             customer1.BirthDay = new DateTime(2000, 08, 10);
             ShowCustomer(customer1);
             Customer customer2; // instanciación
@@ -94,7 +94,7 @@ namespace TestEntitiesCs
         private static void ShowCustomer(Customer customer)
         {
             Console.WriteLine("Nombre: " + customer.Name);
-            Console.WriteLine("Documento: " + customer.Dni);
+            Console.WriteLine("Documento: " + customer.Id);
             Console.WriteLine("Fecha de nacimiento: " + customer.BirthDay);
         }
     }

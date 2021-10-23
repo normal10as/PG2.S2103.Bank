@@ -7,19 +7,19 @@ namespace EntitiesCs
         public Customer()
         {
             Name = "";
-            Dni = 0;
+            Id = 0;
             BirthDay = null;
         }
-        public Customer(string Name, int Dni) : this ()
+        public Customer(string Name, int id) : this ()
         {
             this.Name = Name;
-            this.Dni = Dni;
+            this.Id = id;
             //BirthDay = null;
         }
-        public Customer(string Name, int Dni, DateTime BirthDate) : this(Name, Dni)
+        public Customer(string name, int id, DateTime BirthDate) : this(name, id)
         {
-            //this.Name = Name;
-            //this.Dni = Dni;
+            //this.Name = name;
+            //this.Id = id;
             this.BirthDay = BirthDate;
         }
         private string name;
@@ -34,8 +34,8 @@ namespace EntitiesCs
                 name = value.ToUpper();
             }
         }
-        private int dni;
-        public int Dni { get => dni; set => dni = value; }
+        private int id;
+        public int Id { get => id; set => id = value; }
         private DateTime? birthDay;
         public DateTime? BirthDay
         {
