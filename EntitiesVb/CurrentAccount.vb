@@ -17,4 +17,7 @@
     Private Function isSaldoSuficiente(monto As Decimal) As Boolean
         Return Saldo >= monto - OverdraftAmount
     End Function
+    Public Overrides Function ToString() As String
+        Return "Current Account: " & Number
+    End Function
 End Class

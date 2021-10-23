@@ -37,4 +37,7 @@
     Private Function isSaldoSuficiente(monto As Decimal) As Boolean
         Return Saldo >= monto
     End Function
+    Public Overrides Function ToString() As String
+        Return "Account " & Number
+    End Function
 End Class
