@@ -7,9 +7,9 @@ namespace TestEntitiesCs
     {
         static void Main(string[] args)
         {
-            //CustomerTest();
-            //AccountTest();
-            //SavingAccountTest();
+            CustomerTest();
+            AccountTest();
+            SavingAccountTest();
             CheckingAccountTest();
         }
 

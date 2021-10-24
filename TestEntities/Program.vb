@@ -2,9 +2,9 @@ Imports System
 Imports EntitiesVb
 Module Program
     Sub Main(args As String())
-        'TestCustomer()
-        'TestSavingAccount()
-        TestAccount()
+        CustomerTest()
+        SavingAccountTest()
+        AccountTest()
         TestCurrentAccount()
     End Sub
     Private Sub CustomerTest()
@@ -28,8 +28,6 @@ Module Program
             .Name = "pepa",
             .BirthDay = #1990-5-23#}   ' Inicializacion
         ShowCustomer(customer5)
-
-
     End Sub
     Private Sub ShowCustomer(customer As Customer)
         Console.WriteLine("Nombre: " & customer.Name)
@@ -39,8 +37,23 @@ Module Program
 
     Private Sub CheckingAccountTest()
         Dim account1 As CheckingAccount = New CheckingAccount()
+        Console.WriteLine(account1)
+        account1.Number = 123 ' falla la asignación
+        account1.Number = 12345
+        account1.OverdraftAmount = 5000
+        Console.WriteLine(account1)
+        'account1.Saldo = 1000 no es posible porque es solo lectura
+        Console.WriteLine("Número: " & account1.Number)
+        Console.WriteLine("Saldo: " & account1.Balance)
+        account1.Deposit(3000)
+        Console.WriteLine("Saldo: " & account1.Balance)
+        account1.Withdraw(2500)
+        Console.WriteLine("Saldo: " & account1.Balance)
+        account1.Withdraw(2000)
+        Console.WriteLine("Saldo: " & account1.Balance)
+    End Sub
     Private Sub TestCurrentAccount()
-        Dim account1 As CurrentAccount = New CurrentAccount()
+        Dim account1 As CheckingAccount = New CheckingAccount()
         Console.WriteLine(account1)
         account1.Number = 123 ' falla la asignación
         account1.Number = 12345
