@@ -4,7 +4,7 @@ Module Program
     Sub Main(args As String())
         CustomerTest()
         SavingAccountTest()
-        AccountTest()
+        'AccountTest()
         TestCurrentAccount()
     End Sub
     Private Sub CustomerTest()
@@ -87,20 +87,20 @@ Module Program
         account1.Withdraw(2000)
         Console.WriteLine("Saldo: " & account1.Balance)
     End Sub
-    Private Sub AccountTest()
-        Dim account1 As Account = New Account()
-        Console.WriteLine(account1)
-        account1.Number = 123 ' falla la asignación
-        account1.Number = 12345
-        'account1.Saldo = 1000 no es posible porque es solo lectura
-        Console.WriteLine(account1.ToString())
-        Console.WriteLine("Número: " & account1.Number)
-        Console.WriteLine("Saldo: " & account1.Balance)
-        account1.Deposit(3000)
-        Console.WriteLine("Saldo: " & account1.Balance)
-        account1.Withdraw(2500)
-        Console.WriteLine("Saldo: " & account1.Balance)
-        account1.Withdraw(2000)
-        Console.WriteLine("Saldo: " & account1.Balance)
-    End Sub
+    'Private Sub AccountTest()
+    '    Dim account1 As Account = New Account()
+    '    Console.WriteLine(account1)
+    '    account1.Number = 123 ' falla la asignación
+    '    account1.Number = 12345
+    '    'account1.Saldo = 1000 no es posible porque es solo lectura
+    '    Console.WriteLine(account1.ToString())
+    '    Console.WriteLine("Número: " & account1.Number)
+    '    Console.WriteLine("Saldo: " & account1.Balance)
+    '    account1.Deposit(3000)
+    '    Console.WriteLine("Saldo: " & account1.Balance)
+    '    account1.Withdraw(2500)
+    '    Console.WriteLine("Saldo: " & account1.Balance)
+    '    account1.Withdraw(2000)
+    '    Console.WriteLine("Saldo: " & account1.Balance)
+    'End Sub
 End Module

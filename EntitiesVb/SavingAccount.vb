@@ -17,4 +17,10 @@
     Public Sub DepositMonthlyInterest()
         Deposit(Balance * MonthlyInterestRate)  'Metodo heredado, reuso la funcionalidad con fin que coincide con el requerimiento
     End Sub
+
+    Public Overrides Sub Withdraw(value As Decimal)
+        If Balance >= value Then
+            _balance -= value
+        End If
+    End Sub
 End Class

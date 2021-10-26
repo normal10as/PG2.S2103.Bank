@@ -11,11 +11,13 @@ namespace EntitiesCs
             OverdraftAmount = overdraftAmount;
         }
         public decimal OverdraftAmount { get; set; }    // monto de sobregiro
-        public override void Deposit(decimal value) // redefinición del método
+
+        public override void Withdraw(decimal value)
         {
             if (isBalanceAvailable(value)) // validación
-                balance -= value;
+                balance -= value; 
         }
+
         private bool isBalanceAvailable(decimal amount)
         {
             return Balance + OverdraftAmount >= amount;

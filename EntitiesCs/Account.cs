@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EntitiesCs
 {
-    public class Account
+    public abstract class Account
     {
         private int number;
         protected decimal balance;  // permite acceder a este campo en las subclases
@@ -31,18 +31,10 @@ namespace EntitiesCs
         }
         public decimal Balance { get => balance; }
         public bool Enabled { get; set; }
-        public void Withdraw(decimal value) //Extracción
+        public abstract void Withdraw(decimal value); //Extracción
+        public void Deposit(decimal value)  // metodo virtual permite ser sobreescrito
         {
             balance += value;
-        }
-        public virtual void Deposit(decimal value)  // metodo virtual permite ser sobreescrito
-        {
-            if (isBalanceAvailable(value)) // validación si hay saldo
-                balance -= value;
-        }
-        private bool isBalanceAvailable(decimal amount) // saldo no puede ser negativo
-        {
-            return Balance >= amount;
         }
     }
 }

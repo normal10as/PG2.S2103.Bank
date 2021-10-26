@@ -8,7 +8,7 @@ namespace TestEntitiesCs
         static void Main(string[] args)
         {
             CustomerTest();
-            AccountTest();
+            //AccountTest();
             SavingAccountTest();
             CheckingAccountTest();
         }
@@ -49,24 +49,24 @@ namespace TestEntitiesCs
             account1.Deposit(2000);
             Console.WriteLine("Saldo: " + account1.Balance);
         }        
-        private static void AccountTest()
-        {
-            Account account1 = new Account();
-            account1.Number = 123; // falla por la regla establecida
-            account1.Number = 12345;
-            //account1.Saldo = 1000; No se puede asignar porque es de solo lectura
-            Console.WriteLine("Numero: " + account1.Number);
-            Console.WriteLine("Saldo: " + account1.Balance);
-            account1.Withdraw(3000);
-            Console.WriteLine("Saldo: " + account1.Balance);
-            account1.Deposit(2500);
-            Console.WriteLine("Saldo: " + account1.Balance);
-            account1.Deposit(2000);
-            Console.WriteLine("Saldo: " + account1.Balance);
-            Account account2 = new Account(23456, 10000);
-            Console.WriteLine("Numero: " + account2.Number);
-            Console.WriteLine("Saldo: " + account2.Balance);
-        }
+        //private static void AccountTest()
+        //{
+        //    Account account1 = new Account();
+        //    account1.Number = 123; // falla por la regla establecida
+        //    account1.Number = 12345;
+        //    //account1.Saldo = 1000; No se puede asignar porque es de solo lectura
+        //    Console.WriteLine("Numero: " + account1.Number);
+        //    Console.WriteLine("Saldo: " + account1.Balance);
+        //    account1.Withdraw(3000);
+        //    Console.WriteLine("Saldo: " + account1.Balance);
+        //    account1.Deposit(2500);
+        //    Console.WriteLine("Saldo: " + account1.Balance);
+        //    account1.Deposit(2000);
+        //    Console.WriteLine("Saldo: " + account1.Balance);
+        //    Account account2 = new Account(23456, 10000);
+        //    Console.WriteLine("Numero: " + account2.Number);
+        //    Console.WriteLine("Saldo: " + account2.Balance);
+        //}
         private static void CustomerTest()
         {
             Customer customer1; // instanciación

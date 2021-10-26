@@ -1,4 +1,4 @@
-﻿Public Class Account
+﻿Public MustInherit Class Account
     Private _number As Integer
     Protected _balance As Decimal
     Public Sub New()
@@ -29,14 +29,8 @@
         _balance += value
     End Sub
 
-    Public Overridable Sub Withdraw(value As Decimal)
-        If isBalanceAvailable(value) Then
-            _balance -= value
-        End If
-    End Sub
-    Private Function isBalanceAvailable(amonto As Decimal) As Boolean
-        Return Balance >= amonto
-    End Function
+    Public MustOverride Sub Withdraw(value As Decimal)
+
     Public Overrides Function ToString() As String
         Return "Account " & Number
     End Function

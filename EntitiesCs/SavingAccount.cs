@@ -16,5 +16,11 @@ namespace EntitiesCs
         {
             Withdraw(Balance * MonthlyInterestRate); // Metodo heredado
         }
+
+        public override void Withdraw(decimal value)
+        {
+            if (Balance >= value)
+                balance -= value;
+        }
     }
 }
