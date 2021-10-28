@@ -24,6 +24,15 @@
             Return _balance
         End Get
     End Property
+    Private _customer As Customer
+    Public Property Customer As Customer
+        Get
+            Return _customer
+        End Get
+        Set(value As Customer)
+            _customer = value
+        End Set
+    End Property
     Public Property Enabled As Boolean
     Public Sub Deposit(value As Decimal)
         _balance += value

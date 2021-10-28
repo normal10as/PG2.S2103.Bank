@@ -50,4 +50,7 @@ Public Class Customer
             _birthDay = value
         End Set
     End Property
+    Public Overrides Function ToString() As String
+        Return Name
+    End Function
 End Class

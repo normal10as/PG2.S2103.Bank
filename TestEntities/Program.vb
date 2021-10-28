@@ -2,10 +2,10 @@ Imports System
 Imports EntitiesVb
 Module Program
     Sub Main(args As String())
-        CustomerTest()
-        SavingAccountTest()
+        'CustomerTest()
+        'SavingAccountTest()
         'AccountTest()
-        TestCurrentAccount()
+        CheckingAccountTest()
     End Sub
     Private Sub CustomerTest()
         Dim customer1 As Customer    ' Instanciación
@@ -36,14 +36,22 @@ Module Program
     End Sub
 
     Private Sub CheckingAccountTest()
+        Dim customer2 As Customer    ' Instanciación
+        customer2 = New Customer("pepo", 98765432)   ' Inicializacion
         Dim account1 As CheckingAccount = New CheckingAccount()
         Console.WriteLine(account1)
         account1.Number = 123 ' falla la asignación
         account1.Number = 12345
         account1.OverdraftAmount = 5000
+        account1.Customer = customer2
         Console.WriteLine(account1)
         'account1.Saldo = 1000 no es posible porque es solo lectura
         Console.WriteLine("Número: " & account1.Number)
+        Console.WriteLine("Customer: " & account1.Customer.ToString())
+        Dim customerX = account1.Customer
+        Console.WriteLine("Customer: " & customerX.ToString())
+        customerX.Name = "Pepon"
+        Console.WriteLine("Customer: " & customer2.ToString())
         Console.WriteLine("Saldo: " & account1.Balance)
         account1.Deposit(3000)
         Console.WriteLine("Saldo: " & account1.Balance)

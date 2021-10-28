@@ -48,5 +48,9 @@ namespace EntitiesCs
                 birthDay = value;
             }
         }
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }
