@@ -29,6 +29,7 @@ namespace EntitiesCs
                     number = value;
             }
         }
+        public Customer Customer { get; set; }
         public decimal Balance { get => balance; }
         public bool Enabled { get; set; }
         public abstract void Withdraw(decimal value); //Extracción

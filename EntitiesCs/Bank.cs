@@ -22,5 +22,13 @@ namespace EntitiesCs
         {
             return customers;
         }
+        public List<Customer> GetCustomers(string name)
+        {
+            return customers.FindAll(c => c.Name == name);
+        }
+        public void RemoveCliente(Customer customer)
+        {
+            customers.Remove(customer);
+        }
     }
 }
