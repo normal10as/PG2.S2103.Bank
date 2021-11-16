@@ -7,25 +7,29 @@ namespace TestEntitiesCs
     {
         static void Main(string[] args)
         {
+            BankTest();
             //CustomerTest();
             //AccountTest();
             //SavingAccountTest();
             //CheckingAccountTest();
-            BankTest();
         }
 
         private static void BankTest()
         {
             Bank bank = new Bank();
-            Customer customer1;
-            customer1 = new Customer("pepo", 98765432);
-            bank.AddCliente(customer1);
-            customer1 = new Customer("papo", 98765432, new DateTime(1990, 5, 23));   // inicialización
-            bank.AddCliente(customer1);
+            Customer customer;
+            customer = new Customer("pepo", 98765432);
+            bank.AddCliente(customer);
+            customer = new Customer("papo", 98765433, new DateTime(1990, 5, 23));   // inicialización
+            bank.AddCliente(customer);
+            bank.AddCliente(new Customer("Juana", 98765434));
+            Console.WriteLine("Clientes #: " + bank.AccountCounter);
             foreach (var item in bank.GetCustomers())
             {
                 Console.WriteLine(item);
             }
+
+
         }
 
         private static void CheckingAccountTest()

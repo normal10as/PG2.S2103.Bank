@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace EntitiesCs
 {
@@ -47,6 +48,19 @@ namespace EntitiesCs
             {
                 birthDay = value;
             }
+        }
+        private List<Account> accounts;
+        public void AddAccount(Account account)
+        {
+            accounts.Add(account);
+        }
+        public List<Account> GetAccounts()
+        {
+            return accounts;
+        }
+        public void RemoveAccount(Account account)
+        {
+            accounts.Remove(account);
         }
         public override string ToString()
         {
