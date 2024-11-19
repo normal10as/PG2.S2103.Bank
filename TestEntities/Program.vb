@@ -3,9 +3,9 @@ Imports EntitiesVb
 Module Program
     Sub Main(args As String())
         'CustomerTest()
-        'SavingAccountTest()
+        SavingAccountTest()
         'AccountTest()
-        CheckingAccountTest()
+        'CheckingAccountTest()
     End Sub
     Private Sub CustomerTest()
         Dim customer1 As Customer    ' Instanciación
@@ -79,7 +79,13 @@ Module Program
     End Sub
     Private Sub SavingAccountTest()
         Dim account1 As SavingAccount = New SavingAccount(12345, 10000, 0.1)
-        account1.Number = 123 ' falla la asignación
+
+        Try
+            account1.Number = 123 ' falla la asignación
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+
         account1.Number = 12345
         account1.MonthlyInterestRate = 0.1
         'account1.Saldo = 1000 no es posible porque es solo lectura
@@ -93,6 +99,14 @@ Module Program
         account1.Withdraw(2500)
         Console.WriteLine("Saldo: " & account1.Balance)
         account1.Withdraw(2000)
+        Console.WriteLine("Saldo: " & account1.Balance)
+
+        Try
+            account1.Withdraw(13000)
+        Catch ex As ArgumentException
+            Console.WriteLine(ex.Message)
+        End Try
+
         Console.WriteLine("Saldo: " & account1.Balance)
     End Sub
     'Private Sub AccountTest()

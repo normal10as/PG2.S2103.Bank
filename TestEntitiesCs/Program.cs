@@ -7,10 +7,10 @@ namespace TestEntitiesCs
     {
         static void Main(string[] args)
         {
-            BankTest();
+            //BankTest();
             //CustomerTest();
             //AccountTest();
-            //SavingAccountTest();
+            SavingAccountTest();
             //CheckingAccountTest();
         }
 
@@ -52,7 +52,16 @@ namespace TestEntitiesCs
         private static void SavingAccountTest()
         {
             SavingAccount account1 = new SavingAccount(12345,10000,0.10m);
-            account1.Number = 123; // falla por la regla establecida
+
+            try
+            {
+                account1.Number = 123; // falla por la regla establecida
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
             account1.Number = 12345;
             account1.MonthlyInterestRate = 0.1m;
             //account1.Saldo = 1000; No se puede asignar porque es de solo lectura
@@ -66,6 +75,17 @@ namespace TestEntitiesCs
             account1.Deposit(2500);
             Console.WriteLine("Saldo: " + account1.Balance);
             account1.Deposit(2000);
+            Console.WriteLine("Saldo: " + account1.Balance);
+
+            try
+            {
+                account1.Withdraw(13000);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine( ex.Message);
+            }
+            
             Console.WriteLine("Saldo: " + account1.Balance);
         }        
         //private static void AccountTest()
