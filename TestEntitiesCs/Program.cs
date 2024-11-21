@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using EntitiesCs;
 
 namespace TestEntitiesCs
@@ -7,32 +8,78 @@ namespace TestEntitiesCs
     {
         static void Main(string[] args)
         {
-            //BankTest();
-            //CustomerTest();
+            BankTest();
+            CustomerTest();
             //AccountTest();
-            SavingAccountTest();
+            //SavingAccountTest();
             //CheckingAccountTest();
         }
 
         private static void BankTest()
+		{
+			Bank bank = new Bank();
+			Customer customer;
+			customer = new Customer("pepo Gomez", 98765432);
+			bank.AddCustomer(customer);
+			customer = new Customer("papo Gomez", 98765433, new DateTime(1990, 5, 23));   // inicialización
+			bank.AddCustomer(customer);
+			bank.AddCustomer(new Customer("Juana Perez", 98765434));
+
+			Console.WriteLine("Clientes #: " + bank.CustomerCounter);
+
+			ShowItemsByToString("Mostrar todos los clientes:", bank.GetCustomers());
+			// es equivalente al siguiente codigo
+			//Console.WriteLine("Mostrar todos los clientes:");
+			//foreach (var item in bank.GetCustomers())
+			//{
+			//	Console.WriteLine(item);
+			//}
+
+			ShowItemsByToString("Mostrar todos los Gomez:", bank.GetCustomers("Gomez"));
+
+            int id = 98765433;
+			Console.WriteLine($"Cliente Id {id}: {bank.GetCustomer(id)}");
+
+            Console.WriteLine("Borrar cliente Id " +  id);
+            bank.RemoveCliente(bank.GetCustomer(id));
+            ShowItemsByToString("Mostrar todos los clientes:", bank.GetCustomers());
+		}
+
+        private static void CustomerTest()
         {
-            Bank bank = new Bank();
-            Customer customer;
-            customer = new Customer("pepo", 98765432);
-            bank.AddCliente(customer);
-            customer = new Customer("papo", 98765433, new DateTime(1990, 5, 23));   // inicialización
-            bank.AddCliente(customer);
-            bank.AddCliente(new Customer("Juana", 98765434));
-            Console.WriteLine("Clientes #: " + bank.AccountCounter);
-            foreach (var item in bank.GetCustomers())
-            {
-                Console.WriteLine(item);
-            }
-
-
+            Customer customer1; // instanciación
+            customer1 = new Customer();   // inicialización
+            customer1.Name = "Pepe";
+            customer1.Id = 12345678;
+            customer1.BirthDay = new DateTime(2000, 08, 10);
+            ShowCustomer(customer1);
+            Customer customer2; // instanciación
+            customer2 = new Customer("pepo",98765432);   // inicialización
+            ShowCustomer(customer2);
+            Customer customer3; // instanciación
+            customer3 = new Customer("papo", 98765432, new DateTime(1990,5,23));   // inicialización
+            ShowCustomer(customer3);
+            Customer customer4; // instanciación
+            customer4 = new Customer {Name = "pipo"};   // inicialización
+            ShowCustomer(customer4);
+            Customer customer5; // instanciación
+            customer5 = new Customer {
+                Name ="pepa", 
+                BirthDay = new DateTime(1990, 5, 23)
+            };   // inicialización
+            ShowCustomer(customer5);
         }
+		private static void ShowItemsByToString(string leyenda, IEnumerable list)
+		{
+			Console.WriteLine(leyenda);
+            // el objeto tiene que tener sobreescrito ToString()
+			foreach (var item in list)
+			{
+				Console.WriteLine(item);
+			}
+		}
 
-        private static void CheckingAccountTest()
+		private static void CheckingAccountTest()
         {
             CheckingAccount account1 = new CheckingAccount(12345,10000,5000);
             //account1.Number = 123; // falla por la regla establecida
@@ -106,30 +153,6 @@ namespace TestEntitiesCs
         //    Console.WriteLine("Numero: " + account2.Number);
         //    Console.WriteLine("Saldo: " + account2.Balance);
         //}
-        private static void CustomerTest()
-        {
-            Customer customer1; // instanciación
-            customer1 = new Customer();   // inicialización
-            customer1.Name = "Pepe";
-            customer1.Id = 12345678;
-            customer1.BirthDay = new DateTime(2000, 08, 10);
-            ShowCustomer(customer1);
-            Customer customer2; // instanciación
-            customer2 = new Customer("pepo",98765432);   // inicialización
-            ShowCustomer(customer2);
-            Customer customer3; // instanciación
-            customer3 = new Customer("papo", 98765432, new DateTime(1990,5,23));   // inicialización
-            ShowCustomer(customer3);
-            Customer customer4; // instanciación
-            customer4 = new Customer {Name = "pipo"};   // inicialización
-            ShowCustomer(customer4);
-            Customer customer5; // instanciación
-            customer5 = new Customer {
-                Name ="pepa", 
-                BirthDay = new DateTime(1990, 5, 23)
-            };   // inicialización
-            ShowCustomer(customer5);
-        }
         private static void ShowCustomer(Customer customer)
         {
             Console.WriteLine("Nombre: " + customer.Name);

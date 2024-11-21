@@ -3,7 +3,7 @@ Imports EntitiesVb
 Module Program
     Sub Main(args As String())
         'CustomerTest()
-        SavingAccountTest()
+        'SavingAccountTest()
         'AccountTest()
         'CheckingAccountTest()
     End Sub

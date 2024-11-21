@@ -13,7 +13,7 @@ namespace EntitiesCs
             customers = new List<Customer>();
         }
         // agerga un cliente al banko
-        public void AddCliente(Customer customer)
+        public void AddCustomer(Customer customer)
         {
             customers.Add(customer);
         }
@@ -25,7 +25,15 @@ namespace EntitiesCs
         // devuelve todos los clientes que coincida el nombre
         public List<Customer> GetCustomers(string name)
         {
-            return customers.FindAll(c => c.Name.Contains( name));
+            //return customers.FindAll(c => c.Name.Contains( name.ToUpper()));
+            //Es equivalente al siguiente codigo
+            List<Customer> customersFiltered = new List<Customer>();
+            foreach (Customer customer in customers)
+            {
+                if (customer.Name.Contains(name.ToUpper()))
+                    customersFiltered.Add(customer);
+            }
+            return customersFiltered;
         }
         // devuelve el ciente segun su id
         public Customer GetCustomer(int id)
@@ -38,7 +46,7 @@ namespace EntitiesCs
             customers.Remove(customer);
         }
         // informa el numero de clientes
-        public int AccountCounter
+        public int CustomerCounter
         {
             get => customers.Count;
         }
