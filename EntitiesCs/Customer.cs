@@ -7,20 +7,15 @@ namespace EntitiesCs
     {
         public Customer()
         {
-            Name = "";
-            Id = 0;
-            BirthDay = null;
+            Nationality = "Argentino";
         }
         public Customer(string Name, int id) : this ()
         {
             this.Name = Name;
             this.Id = id;
-            //BirthDay = null;
         }
         public Customer(string name, int id, DateTime BirthDate) : this(name, id)
         {
-            //this.Name = name;
-            //this.Id = id;
             this.BirthDay = BirthDate;
         }
         private string name;
@@ -48,7 +43,10 @@ namespace EntitiesCs
             {
                 birthDay = value;
             }
-        }
+		}
+        // Propiedad autoimplementada
+        public String Nationality { get; set; }
+
         private List<Account> accounts;
         public void AddAccount(Account account)
         {

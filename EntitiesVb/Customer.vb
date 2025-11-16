@@ -1,20 +1,17 @@
+Imports System.Threading
+
 Public Class Customer
     Public Sub New()
-        Me.New("", 0)
-        'Me.Name = ""
-        'Me.id = 0
-        'BirthDay = Nothing
+        Nationality = "Argentino"
     End Sub
-    Public Sub New(Name As String, id As Integer)
-        Me.New(Name, id, Nothing)
-        'Me.Name = Name
-        'Me.id = id
-        'BirthDay = Nothing
-    End Sub
-    Public Sub New(Name As String, id As Integer, BirthDay As Date)
-        Me.Name = Name
+    Public Sub New(name As String, id As Integer)
+        Me.New()
+        Me.Name = name
         Me.Id = id
-        Me.BirthDay = BirthDay
+    End Sub
+    Public Sub New(name As String, id As Integer, birthDay As Date)
+        Me.New(name, id)
+        Me.BirthDay = birthDay
     End Sub
     ' Campo, este forma parte de la implementación privada
     Private _name As String
@@ -50,7 +47,21 @@ Public Class Customer
             _birthDay = value
         End Set
     End Property
+    ' Propiedad autoimplementada
+    Public Property Nationality As String
+
+    Private _accounts As List(Of Account)
+    Public Sub AddAccount(account As Account)
+        _accounts.Add(account)
+    End Sub
+    Public Function GetAccounts() As List(Of Account)
+        Return _accounts
+    End Function
+    Public Sub RemoveAccount(account As Account)
+        _accounts.Remove(account)
+    End Sub
     Public Overrides Function ToString() As String
         Return Name
     End Function
+
 End Class
